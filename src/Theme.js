@@ -16,7 +16,7 @@ const theme = createTheme({
       primary: "#fff",
     },
     accent: {
-      main: "#FCCE1E",
+      main: "#23b92f",
       primaryGradient: `linear-gradient(90deg, hsla(37, 100%, 50%, 0.75) 0%, hsla(48, 97%, 55%, 0.75) 100%)`,
     },
   },
@@ -25,7 +25,7 @@ const theme = createTheme({
 
     body1: {
       fontSize: 14,
-      color: "#FCCE1E",
+      color: "#23b92f",
       fontWeight: "normal",
     },
     body2: {
@@ -52,7 +52,7 @@ const theme = createTheme({
       color: "#ffffff",
     },
   },
-  button:{
+  button: {
     diseabled: {
       background: "white",
     }
@@ -65,7 +65,7 @@ const theme = createTheme({
         },
       },
     },
-    
+
   },
 });
 

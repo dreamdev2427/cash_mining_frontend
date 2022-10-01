@@ -6,7 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
 
-// 0x9dda759C79d073509D020d74F084C5D2bd080000
+
 const CardWrapper = styled(Card)({
   background: "#000",
   boxShadow:
