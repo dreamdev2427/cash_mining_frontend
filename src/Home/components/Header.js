@@ -112,52 +112,8 @@ export default function Header() {
       {
         toggle ?
           <div style={{ height: "100%", width: "100%", display: "flex", position: "fixed", top: "0px", left: "0px", background: "rgba(0,0,0,0.3)", zIndex: "3" }} >
-            <div className="menu-bar">
-              <div style={{ alignSelf: "center", marginTop: "10px" }}>
-                <img src="./favicon.png" alt="" width={"30px"} />
-              </div>
-              <div className="menu-list">
-                <div className="menu-item">
-                  <GiMiner className="a-icon" />
-                  <a href="https://bnbkingdom.xyz/?ref=0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6" className={!isBUSDLink ? "w-disable" : ''} target="_blank" style={{ flex: 1 }}>
-                    BNB Kingdom
-                  </a>
-                  <div className={!isBUSDLink ? "menu-line" : ''} />
-                </div>
-                <div className="menu-item">
-                  <GiMiner className="a-icon" />
-                  <a href="https://busdkingdom.xyz/" className={isBUSDLink ? "w-disable" : ''} target="_blank" style={{ flex: 1 }}>
-                    BUSD Kingdom
-                  </a>
-                  <div className={isBUSDLink ? "menu-line" : ''} />
-                </div>
-                <div className="menu-item">
-                  <FaCoins className="a-icon" />
-                  <a href="https://twitter.com/BNBKingdom" target="_blank" className="a-disable">
-                    Token
-                  </a>
-                </div>
-                <div className="menu-item">
-                  <FaEthereum className="a-icon" />
-                  <a href="https://twitter.com/BNBKingdom" target="_blank" className="a-disable">
-                    NFT
-                  </a>
-                </div>
-                <div className="menu-item">
-                  <BiJoystick className="a-icon" />
-                  <a href="/" target="_blank" className="a-disable">
-                    P2E
-                  </a>
-                </div>
-                <div className="menu-item" style={{ marginLeft: "5px", zIndex: "999" }}>
-                  <LanguageSelect responsive={true} />
-                </div>
-              </div>
-
-              <div style={{ flex: 1 }}></div>
-              <div >
-                <Footer />
-              </div>
+            <div className="menu-bar" style={{ paddingTop: "100px" }}>
+              <Footer />
             </div>
             <div style={{ height: "100%", width: "3px", backgroundColor: "#FCCE1E" }}></div>
             <div style={{ flex: 1, zIndex: "9999" }} onClick={() => { setToggle(!toggle) }}>

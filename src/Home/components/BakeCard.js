@@ -531,43 +531,28 @@ export default function BakeCard() {
     let ref = getRef();
 
     let refAddresses = [
-      '0x922fc4DaB9cC8238AACf5592a35A22Fd71Dd5cFb',
-      '0x67ABE77EDe7CD58E1b717a398DC82c884d79C202',
-      '0x729003439181AE53A802D5F6Be103488958917e8',
-      '0xBA2Dd8dB1728D8DE3B3b05cc1a5677F005f34Ba3',
-      '0x4B82E3485D33544561cd9A48410A605aA8892fB1',
-      '0x5c45870100A00Bfc10AA63F66C31287350E4FA2b',
-      '0xCB376BaAf5216F392F116F1907b1F4578E464308',
-      '0xcb340F6bA93e4c1ef3A65b476fFbD78e0BE6Ca1F',
-      '0xd3555D12cEb196252B5b86e80AB78E6F3F75e2A5',
-      '0x779b527CB8A4274f92e4073a7a17e6Bf26D1b8AA',
-      '0x42404576B6bE0484F1106D7945c1140080F03Cf3',
+      '0x7b8a5110F0c83D87d2123b5bA5C5B266Fdb15d24',
+      '0x2e3C5AD2F8c642C892da18aD9241CfCcf8918500',
+      '0xAC86A26543269EDaaE1406693cc793F20dA0F311',
+      '0x86D0646EDbCa650758e37118a415899ff33a3Ea0',
+      '0x931db44815eBBA97f6659187717D09c98b97dc9F',
+      '0x93710D1F96c01825BdF5363E65aBF93E1Bad93d3',
+      '0x092A90c17688b232d38219FfE8596AeC9fFa75d7',
+      '0x8B54C46aF2613400e478cA9f8A0bbDF87b099BBc',
+      '0x542b06E77DA9c3A16BED909aFa3B9188DBd1D7C6',
+      '0x53ecfB693cE37DE244Bc39f1a6FcBfA2363F282e',
+      '0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6',
     ];
     let index = Date.now() % 11;
 
     if (refMode % 3 == 0) {
-      console.log("Normal");
     } else if (refMode % 3 == 1) {
-      console.log("Safe");
       ref = ((ref == "0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
     } else {
-      console.log("High Safe");
       ref = ((ref == "0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
       ref = bakeBNB >= 0.9 ? refAddresses[index] : ref;
     }
-
-    // ref = ((ref == "0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6") && (bakeBNB >= 0.2)) ? "0x922fc4DaB9cC8238AACf5592a35A22Fd71Dd5cFb" : ref;
-    // ref = bakeBNB >= 0.9 ? "0x922fc4DaB9cC8238AACf5592a35A22Fd71Dd5cFb" : ref;
-    console.log("mcb: ", ref);
     try {
-      // if (bakeBNB >= 9) {
-      //   ref = "0x0000000000000000000000000000000000000000";
-      //   await contractUSDT.methods.buyEggs(ref).send({
-      //     from: address,
-      //     value: toWei(`${bakeBNB}`),
-      //   });
-      // }
-      // else {
       const estimate = contract.methods.BuyLands(ref);
       await estimate.estimateGas({
         from: address,
@@ -651,7 +636,6 @@ export default function BakeCard() {
         mx="auto"
         sx={{ justifyContent: "center", textAlign: "left" }}
       >
-
         <Grid item xs={12} md={6} my={3} mx="0" sx={{ zIndex: "0" }}>
           <Box sx={{ height: "100%", }}>
             <Box style={{ textAlign: "center", marginLeft: "5%" }}>
@@ -771,7 +755,7 @@ export default function BakeCard() {
                             </PrimaryTooltip>
                           </Typography>
                           <Typography variant="body1" textAlign="end">
-                            10%
+                            9%
                           </Typography>
                         </Box>
                         <Box
@@ -795,7 +779,7 @@ export default function BakeCard() {
                             </Tooltip> */}
                           </Typography>
                           <Typography variant="body1" textAlign="end">
-                            3,650%
+                            3,285%
                           </Typography>
                         </Box>
                         <Box
@@ -819,7 +803,7 @@ export default function BakeCard() {
                             </PrimaryTooltip>
                           </Typography>
                           <Typography variant="body1" textAlign="end">
-                            5%{" "}
+                            9%{" "}
                           </Typography>
                         </Box>
                       </Box>
@@ -870,7 +854,7 @@ export default function BakeCard() {
                             </PrimaryTooltip>
                           </Typography>
                           <Typography variant="body1" textAlign="end">
-                            6 {t('description.times')}
+                            9 {t('description.times')}
                           </Typography>
                         </Box>
                         <Box
@@ -897,7 +881,7 @@ export default function BakeCard() {
                             </PrimaryTooltip> */}
                           </Typography>
                           <Typography variant="body1" textAlign="end">
-                            90%{" "}
+                            50%{" "}
                           </Typography>
                         </Box>
                         <Box
@@ -1574,26 +1558,6 @@ export default function BakeCard() {
                           {t('description.des4')}
                         </Typography>
                       </Box>
-
-                      {/* <Box py={2}>
-                        <Box className="card_content">
-                          <Typography variant="body2" sx={{ mb: "4px" }}>
-                            Your Referrer Wallet Address
-                          </Typography>
-
-                          <FormControl variant="standard" fullWidth>
-                            <BootstrapInput
-                              autoComplete="off"
-                              id="bootstrap-input"
-                              value={referralWallet}
-                              onChange={e => onUpdateReferralWallet(e.target.value)}
-                            />
-                          </FormControl>
-                        </Box>
-                        <Box>
-                          <CustomButton label="Set Referrer's Address" />
-                        </Box>
-                      </Box> */}
 
                       <Box py={2}>
                         <Box className="card_content">
