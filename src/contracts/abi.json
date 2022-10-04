@@ -5,35 +5,29 @@
 				"internalType": "address payable",
 				"name": "_dev1",
 				"type": "address"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_dev2",
-				"type": "address"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_dev3",
-				"type": "address"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_prtnr1",
-				"type": "address"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_prtnr2",
-				"type": "address"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_mkt",
-				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -101,7 +95,7 @@
 				"type": "address"
 			}
 		],
-		"name": "BuyLands",
+		"name": "BuyVaults",
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
@@ -140,59 +134,7 @@
 				"type": "address"
 			}
 		],
-		"name": "CHANGE_DEV3",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "value",
-				"type": "address"
-			}
-		],
-		"name": "CHANGE_MKT",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "value",
-				"type": "address"
-			}
-		],
 		"name": "CHANGE_OWNERSHIP",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "value",
-				"type": "address"
-			}
-		],
-		"name": "CHANGE_PARTNER1",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "value",
-				"type": "address"
-			}
-		],
-		"name": "CHANGE_PARTNER2",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -387,33 +329,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "PRC_MKT",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
 		"name": "PRC_REFERRAL",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "PRC_TAX",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -511,7 +427,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "SellLands",
+		"name": "SellVaults",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -741,13 +657,6 @@
 	{
 		"inputs": [],
 		"name": "fundContract",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "fundContractAndHoard",
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
@@ -993,6 +902,26 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "bool",
@@ -1013,7 +942,7 @@
 				"type": "address"
 			}
 		],
-		"name": "startKingdom",
+		"name": "startVank",
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
@@ -1081,6 +1010,19 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
