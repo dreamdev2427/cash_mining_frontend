@@ -6,6 +6,16 @@
   src: url(./assets/Supercell-magic-webfont.ttf);
 }
 
+@font-face {
+  font-family: MontserratExtraBold;
+  src: url(./assets/Montserrat-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/Montserrat-Regular.ttf);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

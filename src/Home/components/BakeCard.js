@@ -617,7 +617,7 @@ export default function BakeCard() {
                   color: "#ff0",
                   textShadow: `2px 7px 5px rgba(0,0,0,0.3), 
                   0px -4px 10px rgba(0,0,0,0.3)`,
-                  fontFamily: "Supercell",
+                  fontFamily: "MontserratExtraBold",
                 }}
               >
                 {t(`description.title1`)}
@@ -1080,7 +1080,7 @@ export default function BakeCard() {
                   color: "#ff0",
                   textShadow: `2px 7px 5px rgba(0,0,0,0.3), 
                   0px -4px 10px rgba(0,0,0,0.3)`,
-                  fontFamily: "Supercell",
+                  fontFamily: "MontserratExtraBold",
                 }}
               >
                 {t(`description.title2`)}
@@ -1634,7 +1634,7 @@ export default function BakeCard() {
             </Grid>
           </Box>
         </Grid>
-      </Grid>
+      </Grid >
     </>
   );
 }

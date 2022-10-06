@@ -21,8 +21,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Roboto', sans-serif",
-
+    fontFamily: "Montserrat",
     body1: {
       fontSize: 14,
       color: "#23b92f",
@@ -38,7 +37,7 @@ const theme = createTheme({
     },
     h3: {
       fontFamily: "'Titan One', cursive",
-      fontSize: 36,
+      fontSize: 40,
     },
     h4: {
       fontSize: 32,
