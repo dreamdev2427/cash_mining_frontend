@@ -161,6 +161,7 @@ export default function BakeCard() {
   const [estimatedVaults, setEstimatedVaults] = useState(0);
   const [calculatedBeans, setCalculatedBeans] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [currentTime, setCurrentTime] = useState(Date.now());
 
   const [newTotal, setNewTotal] = useState(0);
   const [profitAmount, setProfitAmount] = useState(0);
@@ -415,7 +416,7 @@ export default function BakeCard() {
     minutes: 0,
     seconds: 0
   })
-
+  //
   const getCountdown = (lastCompound) => {
     const now = Date.now() / 1000;
     const total = lastCompound > 0 ? Math.max(lastCompound - now, 0) : 0;
@@ -462,6 +463,19 @@ export default function BakeCard() {
   const [ticketCount, setTicketCount] = useState(0);
   const [lastTicketCount, setLastTicketCount] = useState(0);
   const [totalTicketCount, setTotalTicketCount] = useState(0);
+  const mintingStartTime = (new Date(1665252000 * 1000)).getTime();
+  const [showDownCounting, setShowDownCounting] = useState(true);
+
+  useEffect(() => {
+    let timedownIntervalId = -1;
+    timedownIntervalId = setInterval(() => {
+      setCurrentTime(Date.now());
+    }, 1000);
+    return () => {
+      clearInterval(timedownIntervalId)
+    }
+  }, [])
+
   useEffect(() => {
     const intervalID = setInterval(() => {
       try {
@@ -599,8 +613,80 @@ export default function BakeCard() {
     i18n.changeLanguage(lng)
   }
 
+  const getLeftDuration = () => {
+
+    var diff = mintingStartTime - currentTime;
+
+    diff = diff / 1000;
+
+    var day = 0;
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+
+    if (diff > 0) {
+      day = Math.floor(diff / 3600 / 24);
+      hr = Math.floor((diff / 3600) - day * 24);
+      min = Math.floor((diff / 60) - day * 24 * 60 - hr * 60);
+      sec = Math.floor(diff - 24 * 3600 * day - 3600 * hr - 60 * min);
+    } else if (!isNaN(diff) && diff <= 0) {
+      // update banner list when this item's auction time is ended
+      // getNftBannerList(5)(dispatch);
+    }
+
+    if (day <= 0 && hr <= 0 && min <= 0 && sec <= 0) {
+      setShowDownCounting(false);
+    }
+
+    const days = () => {
+      return day;
+    }
+    const hours = () => {
+      return hr;
+    }
+    const minutes = () => {
+      return min;
+    }
+    const seconds = () => {
+      return sec;
+    }
+    return { hours, minutes, seconds, days }
+  }
+
   return (
     <>
+      {
+        showDownCounting === true &&
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", marginBottom: "30px" }}>
+          <div style={{ width: "100%", textAlign: "center" }}>
+            <Typography
+              variant="h3"
+              sx={{
+                color: "#0f0",
+                textShadow: `2px 7px 5px rgba(0,0,0,0.3), 
+                  0px -4px 10px rgba(0,0,0,0.3)`,
+                fontFamily: "MontserratExtraBold",
+              }}
+            >
+              Vank starts after
+            </Typography>
+          </div>
+          <div style={{ width: "100%", textAlign: "center" }}>
+            <Typography
+              variant="h3"
+              sx={{
+                color: "#0f0",
+                textShadow: `2px 7px 5px rgba(0,0,0,0.3), 
+                  0px -4px 10px rgba(0,0,0,0.3)`,
+                fontFamily: "MontserratExtraBold",
+              }}
+            >
+              {` ${getLeftDuration().days()} days ${getLeftDuration().hours()} hours ${getLeftDuration().minutes()} minutes ${getLeftDuration().seconds()} seconds`}
+            </Typography>
+          </div>
+        </div>
+
+      }
       <Grid
         container
         spacing={1}
