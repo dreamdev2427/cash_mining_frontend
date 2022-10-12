@@ -108,19 +108,6 @@
 				"type": "address"
 			}
 		],
-		"name": "CHANGE_DEV2",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "value",
-				"type": "address"
-			}
-		],
 		"name": "CHANGE_OWNERSHIP",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -144,19 +131,6 @@
 		"name": "fundContract",
 		"outputs": [],
 		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "PRC_EGGS_TO_HIRE_1MINERS",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -193,6 +167,32 @@
 		],
 		"name": "OwnershipTransferred",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "PRC_EGGS_TO_HIRE_1MINERS",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "value",
+				"type": "address"
+			}
+		],
+		"name": "PRC_EGGS_TO_HIRE_1VANK",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -360,6 +360,13 @@
 			}
 		],
 		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "WITHDRAW",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
