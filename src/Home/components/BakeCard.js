@@ -463,7 +463,7 @@ export default function BakeCard() {
   const [ticketCount, setTicketCount] = useState(0);
   const [lastTicketCount, setLastTicketCount] = useState(0);
   const [totalTicketCount, setTotalTicketCount] = useState(0);
-  const mintingStartTime = (new Date(1665669600 * 1000)).getTime();
+  const mintingStartTime = (new Date(1665590400 * 1000)).getTime();
   const [showDownCounting, setShowDownCounting] = useState(true);
 
   useEffect(() => {
