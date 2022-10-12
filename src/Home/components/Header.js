@@ -80,19 +80,16 @@ export default function Header() {
       sx={{ px: { lg: 0, xs: 2 }, width: "100%", maxWidth: "calc(100% - 11%)", mx: "auto", zIndex: "1" }}
     >
       {!isMobile ?
-        <Wrapper>
-          <MenuButton onClick={() => { setToggle(!toggle) }}>
-            <MenuRoundedIcon />
-            <div >
-              Menu
+        <>
+          <Wrapper>
+            <Connect />
+          </Wrapper>
+          <Wrapper sx={{ display: "flex", justifyContent: "center" }}>
+            <div className="header_logo">
+              <img src={logo} alt="" width={"600px"} />
             </div>
-          </MenuButton>
-
-          <div className="header_logo">
-            <img src={logo} alt="" width={"600px"} />
-          </div>
-          <Connect />
-        </Wrapper>
+          </Wrapper>
+        </>
         :
         <SmallScreenWrapper>
           <div className="header_logo">
