@@ -1393,7 +1393,7 @@ export default function BakeCard() {
 
                       <Box>
                         <Box>
-                          <CustomButton3 label={t('description.buyVaults')}
+                          <CustomButton3 label={t('description.buyLands')}
                             _color="green"
                             onClick={bake} />
                         </Box>
